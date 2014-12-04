@@ -1,0 +1,11 @@
+Para compilação do projeto:
+
+	make
+
+Para execução do projeto:
+
+	make run
+
+Para eliminar os executáveis:
+
+	make clean
