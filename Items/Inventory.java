@@ -157,7 +157,7 @@ public class Inventory
 
 	  if (item instanceof Armor)    //If the item to be equiped is an armor
 	  {
-	    if (equipedarmors <= 1)  //There must be one or less armors equiped
+	    if (equipedarmors < 1)  //There must be one or less armors equiped
 	    {
 	      for (int i=0; i < items.size(); i++)
 	      {
@@ -175,7 +175,7 @@ public class Inventory
 
 	  if (item instanceof Weapon)    //If the item to be equiped is a weapon
 	  {
-	    if (equipedweapons <= 2)  //There must be two or less weapons equiped
+	    if (equipedweapons < 2)  //There must be two or less weapons equiped
 	    {
 	      for (int i=0; i < items.size(); i++)
 	      {
