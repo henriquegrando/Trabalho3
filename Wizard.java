@@ -8,8 +8,8 @@ public class Wizard extends Character
 
     public Wizard (String alias, int wisdom)
     {
-	super(alias);
-	this.wisdom = wisdom;
+		super(alias);
+		this.wisdom = wisdom;
     }
 
     @Override

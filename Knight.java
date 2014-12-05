@@ -8,8 +8,8 @@ public class Knight extends Character
 
     public Knight (String alias, int power)
     {
-	super(alias);
-	this.power = power;
+		super(alias);
+		this.power = power;
     }
 
     @Override

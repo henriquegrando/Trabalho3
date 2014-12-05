@@ -15,9 +15,8 @@ public abstract class Item
     
     public Item (String name, double price)
     {
-	this.name = name;
-	
-	this.price = price;
+		this.name = name;
+		this.price = price;
     }
 
     public Item (Item item)
@@ -30,12 +29,12 @@ public abstract class Item
 
     public String getName()
     {
-	return name;
+		return name;
     }
     
     public double getPrice()
     {
-	return price;
+		return price;
     }
 
     abstract public int getDefensePts ();

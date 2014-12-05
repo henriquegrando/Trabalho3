@@ -22,30 +22,30 @@ public abstract class Character
     /*Constructor*/
     public Character (String alias)
     {
-	this.alias = alias;
-	myitems = new Inventory();
-	HP = 100;
-	XP = 1;
-	strenght = 25;
-	speed = 25;
-	dexterity = 25;
-	constitution = 25;
-	speedarmor = 0;
+		this.alias = alias;
+		myitems = new Inventory();
+		HP = 100;
+		XP = 1;
+		strenght = 25;
+		speed = 25;
+		dexterity = 25;
+		constitution = 25;
+		speedarmor = 0;
     }
     
     public String getName()
     {
-	return alias;
+		return alias;
     }
 
     protected int getDefensePoints()
     {
-	return (int) ((constitution*0.5 + dexterity*0.3 + speed*0.2) + (myitems.defPts()))*(XP/2);
+		return (int) ((constitution*0.5 + dexterity*0.3 + speed*0.2) + (myitems.defPts()))*(XP/2);
     }
     
     protected int getAttackPoints()
 	{
-	return (int) ((strenght*0.5 + dexterity*0.3 + speed*0.2) +(myitems.attPts()))*(XP/3);
+		return (int) ((strenght*0.5 + dexterity*0.3 + speed*0.2) +(myitems.attPts()))*(XP/3);
     }
 
     public int getSpeed ()
@@ -55,46 +55,46 @@ public abstract class Character
     
     public void addXP (int XP)
     {
-	int sum = this.XP + XP;
+		int sum = this.XP + XP;
 	
-	if (sum >= 0 && sum <= 100)
-	    this.XP = sum;
-	else if (sum > 100)
-	    System.out.println ("Max XP reached!");
-	else if (sum < 0)
-	    System.out.println ("XP can't be below 0!");
+		if (sum >= 0 && sum <= 100)
+	    	this.XP = sum;
+		else if (sum > 100)
+		    System.out.println ("Max XP reached!");
+		else if (sum < 0)
+		    System.out.println ("XP can't be below 0!");
     }
     
     public void setStrenght (int value)
     {
-	if (value + speed + dexterity + constitution > 100)
-	    System.out.println("Attribute points can't be above 100!");
-	else
-	    strenght = value;
+		if (value + speed + dexterity + constitution > 100)
+		    System.out.println("Attribute points can't be above 100!");
+		else
+		    strenght = value;
     }
     
     public void setSpeed (int value)
     {
-	if (strenght + value + dexterity + constitution > 100)
-	    System.out.println("Attribute points can't be above 100!");
-	else
-	    speed = value;
+		if (strenght + value + dexterity + constitution > 100)
+		    System.out.println("Attribute points can't be above 100!");
+		else
+		    speed = value;
     }
 
     public void setDexterity (int value)
     {
-	if (strenght + speed + value + constitution > 100)
-	    System.out.println("Attribute points can't be above 100!");
-	else
-	    dexterity = value;
+		if (strenght + speed + value + constitution > 100)
+		    System.out.println("Attribute points can't be above 100!");
+		else
+		    dexterity = value;
     }
     
     public void setConstitution (int value)
     {
-	if (strenght + speed + dexterity + value > 100)
-	    System.out.println("Attribute points can't be above 100!");
-	else
-	    constitution = value;
+		if (strenght + speed + dexterity + value > 100)
+		    System.out.println("Attribute points can't be above 100!");
+		else
+		    constitution = value;
     }
 
     public void setSpeedArmor (int value)
@@ -124,8 +124,8 @@ public abstract class Character
 		
 		if (event == 1)           //Chances of critical hit
 		    {
-			System.out.println ("CRITICAL!");
-			damage = damage * 2;
+				System.out.println ("CRITICAL!");
+				damage = damage * 2;
 		    }
 		
 		if (damage < 0)
@@ -144,12 +144,12 @@ public abstract class Character
         if (HP + value <= 100)
 	       HP = HP + value;
         else
-            HP = 100;
+        	HP = 100;
     }
 
     public void addMP (int value)
     {
-	MP = MP + value;
+		MP = MP + value;
     }
 
     public int getHP()
