@@ -16,11 +16,11 @@ public class Inventory
 
     public Inventory ()
     {
-	items = new ArrayList<Pair>();
-	spaces = 10;
-	gold = 0.0;
-	equipedarmors = 0;
-	equipedweapons = 0;
+		items = new ArrayList<Pair>();
+		spaces = 10;
+		gold = 0.0;
+		equipedarmors = 0;
+		equipedweapons = 0;
     }
 
     public void clearInventory()
@@ -30,58 +30,58 @@ public class Inventory
     
     public double getTotalGold()
     {
-	return gold;
+		return gold;
     }
     
     public int getAvailableSpace()
     {
-	return (spaces - items.size());
+		return (spaces - items.size());
     }
     
     public void spendGold(double gold)
     {
-	if (gold >= 0)
-	    this.gold = this.gold - gold;
-	else
-	    System.out.println ("Value must be positive!");
+		if (gold >= 0)
+		    this.gold = this.gold - gold;
+		else
+		    System.out.println ("Value must be positive!");
     }
 
     public void earnGold(double gold)
     {
-	if (gold >= 0)
-	    this.gold = this.gold + gold;
-	else
-	    System.out.println ("Value must be positive!");
+		if (gold >= 0)
+		    this.gold = this.gold + gold;
+		else
+		    System.out.println ("Value must be positive!");
     }
     
     public void setSpaces(int spaces)
     {
-	if (spaces < items.size())
-	    System.out.println ("Space in use! Can't delete it!");
-	else
-	    this.spaces = spaces;
+		if (spaces < items.size())
+		    System.out.println ("Space in use! Can't delete it!");
+		else
+		    this.spaces = spaces;
     }
     
     public Item searchItem(String name)
     {
-	for (int i=0; i < items.size(); i++)
-	    {
-		if(items.get(i).first.getName().equals(name))
+		for (int i=0; i < items.size(); i++)
+		{
+			if(items.get(i).first.getName().equals(name))
 		    return items.get(i).first;
-	    }
+		}
 	
-	System.out.println ("Item not found!");
-	return null;
+		System.out.println ("Item not found!");
+		return null;
     }
     
     public Item searchItem(int index)
     {
-	if (index >= 0 && index < items.size())      /*Check if the index is not out of boundaries*/
-	    return items.get(index).first;
-	else
+		if (index >= 0 && index < items.size())      /*Check if the index is not out of boundaries*/
+	    	return items.get(index).first;
+		else
 	    {
-		System.out.println ("Out of bounds! Choose an element between 0 and " + (items.size()-1));
-		return null;
+			System.out.println ("Out of bounds! Choose an element between 0 and " + (items.size()-1));
+			return null;
 	    }
     }
     
@@ -92,53 +92,58 @@ public class Inventory
     	newpair.first = item;
     	newpair.second = false;
 
-	if (getAvailableSpace() > 0)
-	    items.add(newpair);
+		if (getAvailableSpace() > 0)
+	    	items.add(newpair);
     }
     
     public void removeItem(String name)
     {
-	int pos;
+		int pos;
 	
-	for (pos=0; pos < items.size(); pos++)   /*After the loop, pos will be the position of the Item to be removed */
+		for (pos=0; pos < items.size(); pos++)
 	    {
-		if(items.get(pos).first.getName().equals(name))
-		    break;
+			if(items.get(pos).first.getName().equals(name))
+			{
+				items.remove(pos);
+		    	break;
+		    }
 	    }
 	
-	items.remove(pos);
+		
     }
     
     public void removeItem(int index)
     {
-	if (index >= 0 && index < items.size())
-	    items.remove(index);
-	else
-	    System.out.println ("Out of bounds! Choose an element between 0 and " + (items.size()-1));
+		if (index >= 0 && index < items.size())
+	    	items.remove(index);
+		else
+	    	System.out.println ("Out of bounds! Choose an element between 0 and " + (items.size()-1));
     }
     
     /*Returns de defense points of the equiped items*/
     public int defPts()
     {
-	int defense = 0;
+		int defense = 0;
 	
-	for (int i = 0; i < items.size(); i++)
-		if (items.get(i).second)
-	    	defense = defense + items.get(i).first.getDefensePts();
+		for (int i = 0; i < items.size(); i++)
+			if (items.get(i).second)
+	    		defense = defense + items.get(i).first.getDefensePts();
 	
-	return defense;
+		return defense;
     }
     
     /*Returns de attack points of the equiped items*/
     public int attPts()
     {
-	int attack = 0;
+		int attack = 0;
 	
-	for (int i = 0; i < items.size(); i++){
-		if (items.get(i).second)
-	    	attack = attack + items.get(i).first.getAttackPts();
-	}
-	return attack;
+		for (int i = 0; i < items.size(); i++)
+		{
+			if (items.get(i).second)
+	    		attack = attack + items.get(i).first.getAttackPts();
+		}
+		
+		return attack;
     }
 
     public boolean equipItem(Item item)
@@ -146,7 +151,7 @@ public class Inventory
 
 	  item = searchItem (item.getName());
 
-	  //Veryfing if the item exists in the inventory
+	  //Verifying if the item exists in the inventory
 	  if (item == null)
 	    System.out.println ("Item doesn't exist!\n\n");
 
