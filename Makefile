@@ -1,8 +1,8 @@
 all:
-	@javac Trabalho2.java
+	@javac Trabalho3.java
 
 clean:
 	@rm -f *.class Items/*.class
 
 run:
-	@java Trabalho2
+	@java Trabalho3
