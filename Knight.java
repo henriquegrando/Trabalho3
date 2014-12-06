@@ -1,4 +1,4 @@
-public class Knight extends GameCharacter
+public class Knight extends GameCharacter implements Desert, Forest
 {
     /*Atributtes*/
 
@@ -29,6 +29,23 @@ public class Knight extends GameCharacter
 	{
 		power = power + value;
 	}
+	
+	public void activeDesert ()
+	{
+		setStrenght (this.strenght - 5);
+		setSpeed (this.speed - 5);
+		setConstitution (this.constitution - 5);
+		setDexterity (this.dexterity - 5);
+	}
+	
+	public void activeForest ()
+	{
+		setStrenght (this.strenght + 5);
+		setSpeed (this.speed + 5);
+		setConstitution (this.constitution + 5);
+		setDexterity (this.dexterity + 5);
+	}
+		
 }
 
 	

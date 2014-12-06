@@ -30,6 +30,88 @@ public class Trabalho3
   t2.addChar(ch6);
   t2.addChar(ch7);
   t2.addChar(ch8);
+  
+  //Uncomment the part below to see
+  //the Characters' attributes
+  
+   System.out.println (t1.getName());
+   System.out.println (ch1.getStatus());
+   System.out.println (ch2.getStatus());
+   System.out.println (ch3.getStatus());
+   System.out.println (ch4.getStatus() + "\n");
+
+   System.out.println (t2.getName());
+   System.out.println (ch5.getStatus());
+   System.out.println (ch6.getStatus());
+   System.out.println (ch7.getStatus());
+   System.out.println (ch8.getStatus());
+  
+  /* Loading Battle Field */
+  int scenario = GameCharacter.rnd(0,2);
+  
+  if (scenario == 0)
+  {
+  	ArrayList<City> city = new ArrayList<City> ();
+  	
+  	city.add(ch1);
+  	city.add(ch3);
+  	city.add(ch5);
+  	
+  	for (int i = 0; i < city.size(); i++)
+  	{
+  		city.get(i).activeCity();
+  	}
+  }
+  
+  if (scenario == 1)
+  {
+  	ArrayList<Forest> forest = new ArrayList<Forest> ();
+  	
+  	forest.add(ch2);
+  	forest.add(ch3);
+  	forest.add(ch4);
+  	forest.add(ch6);
+  	forest.add(ch7);
+  	forest.add(ch8);
+  	
+  	for (int i = 0; i < forest.size(); i++)
+  	{
+  		forest.get(i).activeForest();
+  	}
+  }
+  
+  if (scenario == 2)
+  {
+  	ArrayList<Desert> desert = new ArrayList<Desert> ();
+  	
+  	desert.add(ch1);
+  	desert.add(ch2);
+  	desert.add(ch4);
+  	desert.add(ch5);
+  	desert.add(ch6);
+  	desert.add(ch7);
+  	desert.add(ch8);
+  	
+  	for (int i = 0; i < desert.size(); i++)
+  	{
+  		desert.get(i).activeDesert();
+  	}
+  }
+
+  //Uncomment the part below to see
+  //the Characters' attributes
+  
+   System.out.println (t1.getName());
+   System.out.println (ch1.getStatus());
+   System.out.println (ch2.getStatus());
+   System.out.println (ch3.getStatus());
+   System.out.println (ch4.getStatus() + "\n");
+
+   System.out.println (t2.getName());
+   System.out.println (ch5.getStatus());
+   System.out.println (ch6.getStatus());
+   System.out.println (ch7.getStatus());
+   System.out.println (ch8.getStatus());
 
   /* Equiping Armors */
 

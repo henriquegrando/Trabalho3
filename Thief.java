@@ -1,4 +1,4 @@
-public class Thief extends GameCharacter
+public class Thief extends GameCharacter implements City, Forest
 {
     /*Atributtes*/
 
@@ -28,6 +28,22 @@ public class Thief extends GameCharacter
     public void addStealth (int value)
 	{
 		stealth = stealth + value;
+	}
+	
+	public void activeForest ()
+	{
+		setStrenght (this.strenght - 5);
+		setSpeed (this.speed - 5);
+		setConstitution (this.constitution - 5);
+		setDexterity (this.dexterity - 5);
+	}
+	
+	public void activeCity ()
+	{
+		setStrenght (this.strenght + 5);
+		setSpeed (this.speed + 5);
+		setConstitution (this.constitution + 5);
+		setDexterity (this.dexterity + 5);
 	}
 }
 	

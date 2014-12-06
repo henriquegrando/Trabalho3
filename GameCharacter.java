@@ -25,10 +25,10 @@ public abstract class GameCharacter
 		myitems = new Inventory();
 		HP = 100;
 		XP = 1;
-		strenght = 25;
-		speed = 25;
-		dexterity = 25;
-		constitution = 25;
+		strenght = 15;
+		speed = 15;
+		dexterity = 15;
+		constitution = 15;
 		speedarmor = 0;
     }
     
@@ -79,7 +79,7 @@ public abstract class GameCharacter
     		
 		if (value + speed + dexterity + constitution > 100)
 		{
-			int above = 100 - (value+speed+dexterity+constitution);		// Calculate the points above 100
+			int above = (value+speed+dexterity+constitution) - 100;		// Calculate the points above 100
 			int penality = above / 3;									// Penality to each of the other attributes
 			int leftPenality = above%3;
 			
@@ -125,7 +125,7 @@ public abstract class GameCharacter
     		
 		if (strenght + value + dexterity + constitution > 100)
 		{
-			int above = 100 - (strenght+value+dexterity+constitution);		// Calculate the points above 100
+			int above = (strenght+value+dexterity+constitution) - 100;		// Calculate the points above 100
 			int penality = above / 3;										// Penality to each of the other attributes
 		    int leftPenality = above%3;
 			
@@ -171,7 +171,7 @@ public abstract class GameCharacter
     		
 		if (strenght + speed + value + constitution > 100)
 		{
-			int above = 100 - (strenght+speed+value+constitution);		// Calculate the points above 100
+			int above = (strenght+speed+value+constitution) - 100;		// Calculate the points above 100
 			int penality = above / 3;									// Penality to each of the other attributes
 			int leftPenality = above%3;
 			
@@ -217,7 +217,7 @@ public abstract class GameCharacter
     		
 		if (strenght + speed + dexterity + value > 100)
 		{
-			int above = 100 - (strenght+speed+dexterity+value);		// Calculate the points above 100
+			int above = (strenght+speed+dexterity+value) - 100;		// Calculate the points above 100
 			int penality = above / 3;									// Penality to each of the other attributes
 		    int leftPenality = above%3;
 			

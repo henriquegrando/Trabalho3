@@ -1,4 +1,4 @@
-public class Wizard extends GameCharacter
+public class Wizard extends GameCharacter implements Desert, City
 {
     /*Atributtes*/
 
@@ -28,5 +28,21 @@ public class Wizard extends GameCharacter
     public void addWisdom (int value)
 	{
 		wisdom = wisdom + value;
+	}
+	
+	public void activeCity ()
+	{
+		setStrenght (this.strenght - 5);
+		setSpeed (this.speed - 5);
+		setConstitution (this.constitution - 5);
+		setDexterity (this.dexterity - 5);
+	}
+	
+	public void activeDesert ()
+	{
+		setStrenght (this.strenght + 5);
+		setSpeed (this.speed + 5);
+		setConstitution (this.constitution + 5);
+		setDexterity (this.dexterity + 5);
 	}
 }
