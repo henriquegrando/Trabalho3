@@ -1,6 +1,6 @@
 package Items;
 
-public class Armor extends Item
+public abstract class Armor extends Item
 {
 	protected int defensepts;
 	protected double weight;
