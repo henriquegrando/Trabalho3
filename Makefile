@@ -2,7 +2,7 @@ all:
 	@javac Trabalho3.java
 
 clean:
-	@rm -f *.class Items/*.class
+	@rm -f *.class
 
 run:
 	@java Trabalho3
