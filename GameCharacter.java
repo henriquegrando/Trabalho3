@@ -276,7 +276,7 @@ public abstract class GameCharacter
 	
 		int damage;
 	
-		damage = (int) ((getAttackPoints()) - (target.getDefensePoints())) + (rnd (-5,5));
+		damage = (int) ((getAttackPoints()) - (target.getDefensePoints()/3)) + (rnd (-5,5));
 		
 		if (event == 1)           //Chances of critical hit
 		    {

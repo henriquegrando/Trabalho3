@@ -9,7 +9,8 @@ public class Team
 	private int lose;
 	private int draw;
 	private ArrayList<GameCharacter> characters;
-
+	private ArrayList<Boolean> available;				//Determines if the respective character is available for a fight
+	
 	public Team(String name, Color color)
 	{
 		this.name = name;
@@ -18,6 +19,7 @@ public class Team
 		lose = 0;
 		draw = 0;
 		characters = new ArrayList<GameCharacter>();
+		available = new ArrayList<Boolean> ();
 	}
 
 	public void clearTeam ()
@@ -28,6 +30,18 @@ public class Team
 	public String getName()
 	{
 		return name;
+	}
+	
+	/* Returns the available status of the character */
+	public Boolean getAvailable (int index)
+	{
+		return available.get(index);
+	}
+	
+	/* Set the available status of the character */
+	public void setAvailable (int index, Boolean bool)
+	{
+		available.set(index, bool);
 	}
 
 	/*Return a string containing the number of wins, loses and draws*/
@@ -64,11 +78,13 @@ public class Team
 	public void addChar (GameCharacter partner)
 	{
 		characters.add(partner);
+		available.add(true);
 	}
 
 	public void removeChar (int index)
 	{
 		characters.remove (index);
+		available.remove (index);
 	}
 
 	public void removeChar (GameCharacter partner)

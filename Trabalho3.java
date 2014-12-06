@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Trabalho3
 {
- public static void main (String args [])
+ public static void main (String args []) throws InterruptedException
  {
   /* Loading Characters*/
 
@@ -34,17 +34,17 @@ public class Trabalho3
   //Uncomment the part below to see
   //the Characters' attributes
   
-   System.out.println (t1.getName());
-   System.out.println (ch1.getStatus());
-   System.out.println (ch2.getStatus());
-   System.out.println (ch3.getStatus());
-   System.out.println (ch4.getStatus() + "\n");
+   //System.out.println (t1.getName());
+   //System.out.println (ch1.getStatus());
+   //System.out.println (ch2.getStatus());
+   //System.out.println (ch3.getStatus());
+   //System.out.println (ch4.getStatus() + "\n");
 
-   System.out.println (t2.getName());
-   System.out.println (ch5.getStatus());
-   System.out.println (ch6.getStatus());
-   System.out.println (ch7.getStatus());
-   System.out.println (ch8.getStatus());
+   //System.out.println (t2.getName());
+   //System.out.println (ch5.getStatus());
+   //System.out.println (ch6.getStatus());
+   //System.out.println (ch7.getStatus());
+   //System.out.println (ch8.getStatus());
   
   /* Loading Battle Field */
   int scenario = GameCharacter.rnd(0,2);
@@ -101,17 +101,17 @@ public class Trabalho3
   //Uncomment the part below to see
   //the Characters' attributes
   
-   System.out.println (t1.getName());
-   System.out.println (ch1.getStatus());
-   System.out.println (ch2.getStatus());
-   System.out.println (ch3.getStatus());
-   System.out.println (ch4.getStatus() + "\n");
+   //System.out.println (t1.getName());
+   //System.out.println (ch1.getStatus());
+   //System.out.println (ch2.getStatus());
+   //System.out.println (ch3.getStatus());
+   //System.out.println (ch4.getStatus() + "\n");
 
-   System.out.println (t2.getName());
-   System.out.println (ch5.getStatus());
-   System.out.println (ch6.getStatus());
-   System.out.println (ch7.getStatus());
-   System.out.println (ch8.getStatus());
+   //System.out.println (t2.getName());
+   //System.out.println (ch5.getStatus());
+   //System.out.println (ch6.getStatus());
+   //System.out.println (ch7.getStatus());
+   //System.out.println (ch8.getStatus());
 
   /* Equiping Armors */
 
@@ -220,100 +220,93 @@ public class Trabalho3
    //System.out.println (ch7.getStatus());
    //System.out.println (ch8.getStatus());
   
-  /* Fight */
-
-  ArrayList<Boolean> chteam1 = new ArrayList<Boolean>();   //controls the characters that
-  ArrayList<Boolean> chteam2 = new ArrayList<Boolean>();   //have already attacked on this turn
-
-  chteam1.add (false); //ch1
-  chteam1.add (false); //ch2
-  chteam1.add (false); //ch3
-  chteam1.add (false); //ch4
+  /* Setting fight 1 */
   
-  chteam2.add (false); //ch5
-  chteam2.add (false); //ch6
-  chteam2.add (false); //ch7
-  chteam2.add (false); //ch8
+  int choose1 = GameCharacter.rnd(0,3);
+  int choose2 = GameCharacter.rnd(0,3);
 
-  GameCharacter attacker;
-  GameCharacter defender;
-
-  for (int i = 0; i < 4; i++)   // 1 round == 8 attacks
+  Fight fight1 = new Fight (t1.searchChar(choose1), t2.searchChar(choose2));
+  
+  t1.setAvailable (choose1, false);
+  t2.setAvailable (choose2, false);
+  
+  System.out.println ("Fight 1:\n" + t1.searchChar(choose1).getName() + " X " + t2.searchChar(choose2).getName() + "\n");
+  
+  /* Setting fight 2 */
+  
+  do
   {
-    /* Team 1 attacks */
-
-    int choose = GameCharacter.rnd (0,3);
-
-    int topbottom = 0; //flag that tell to increase or decrease the position
-
-    while (chteam1.get(choose))
-    {
-      if (choose+1 >= (int) chteam1.size())
-      {
-        topbottom = 1;      //top reached
-        choose--;
-        continue;
-      }
-      else if (choose-1 < 0)
-      {
-        topbottom = 0;      //bottom reached
-        choose++;
-        continue;
-      }
-      else if (topbottom == 0)  //bottom reached, so
-        choose++;               //increase
-      else                      //top reached, so
-        choose--;               //decrease
-        
-    }
-
-    attacker = t1.searchChar (choose);
-
-    chteam1.set(choose, true);     //Character already attacked
-
-    choose = GameCharacter.rnd (0,3);
-
-    defender = t2.searchChar (choose);
-
-    attacker.attack(defender);
-
-
-    /* Team 2 attacks */
-
-    choose = GameCharacter.rnd (0,3);
-
-    topbottom = 0;
-
-    while (chteam2.get(choose))
-    {
-      if (choose+1 >= (int) chteam2.size())
-      {
-        topbottom = 1;      //top reached
-        choose--;
-        continue;
-      }
-      else if (choose-1 < 0)
-      {
-        topbottom = 0;      //bottom reached
-        choose++;
-        continue;
-      }
-      else if (topbottom == 0)  //bottom reached, so
-        choose++;               //increase
-      else                      //top reached, so
-        choose--;               //decrease 
-    }
-
-    attacker = t2.searchChar (choose);
-
-    chteam2.set(choose, true);     //Character already attacked
-
-    choose = GameCharacter.rnd (0,3);
-
-    defender = t1.searchChar (choose);
-
-    attacker.attack(defender); 
-}
+  	choose1 = GameCharacter.rnd(0,3);
+  }while (!t1.getAvailable(choose1));
+  
+  do
+  {
+  	choose2 = GameCharacter.rnd(0,3);
+  }while (!t2.getAvailable(choose2));
+  
+  Fight fight2 = new Fight (t1.searchChar(choose1), t2.searchChar(choose2));
+  
+  t1.setAvailable (choose1, false);
+  t2.setAvailable (choose2, false);
+  
+  System.out.println ("Fight 2:\n" + t1.searchChar(choose1).getName() + " X " + t2.searchChar(choose2).getName() + "\n");
+  
+  /* Setting fight 3 */
+  
+  do
+  {
+  	choose1 = GameCharacter.rnd(0,3);
+  }while (!t1.getAvailable(choose1));
+  
+  do
+  {
+  	choose2 = GameCharacter.rnd(0,3);
+  }while (!t2.getAvailable(choose2));
+  
+  Fight fight3 = new Fight (t1.searchChar(choose1), t2.searchChar(choose2));
+  
+  t1.setAvailable (choose1, false);
+  t2.setAvailable (choose2, false);
+  
+  System.out.println ("Fight 3:\n" + t1.searchChar(choose1).getName() + " X " + t2.searchChar(choose2).getName() + "\n");
+  
+  /* Setting fight 4 */
+  
+  int i = 0;
+  
+  while (!t1.getAvailable(i))
+  	i++;
+  
+  choose1 = i;
+  
+  i = 0;
+  
+  while (!t2.getAvailable(i))
+  	i++;
+  	
+  choose2 = i;
+  
+  Fight fight4 = new Fight (t1.searchChar(choose1), t2.searchChar(choose2));
+  
+  t1.setAvailable (choose1, false);
+  t2.setAvailable (choose2, false);
+  
+  System.out.println ("Fight 4:\n" + t1.searchChar(choose1).getName() + " X " + t2.searchChar(choose2).getName() + "\n");
+  
+  System.out.println ("The fight is about to begin!\n");
+  
+  /* Starting fights */
+  
+  fight1.start();
+  fight2.start();
+  fight3.start();
+  fight4.start();
+  
+  fight1.join();
+  fight2.join();
+  fight3.join();
+  fight4.join();
+  
 
 	  /* Resolve Battle */
 
@@ -322,5 +315,5 @@ public class Trabalho3
 
 	  System.out.println ("\n\n" + t1.getName() + "\n" + t1.getResults() + "\n");
 	  System.out.println ("\n" + t2.getName() + "\n" + t2.getResults() + "\n");
-    }
+	}
 }
