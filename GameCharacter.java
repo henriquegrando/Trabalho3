@@ -71,35 +71,187 @@ public abstract class GameCharacter
     
     public void setStrenght (int value)
     {
+    	if (value > 97)
+    	{
+    		System.out.println ("Can't set an attribute above this point");
+    		return;
+    	}
+    		
 		if (value + speed + dexterity + constitution > 100)
-		    System.out.println("Attribute points can't be above 100!");
+		{
+			int above = 100 - (value+speed+dexterity+constitution);		// Calculate the points above 100
+			int penality = above / 3;									// Penality to each of the other attributes
+			int leftPenality = above%3;
+			
+			/* Applying penalities */
+			if (speed - (penality+leftPenality) > 0)
+    		{
+    			setSpeed (speed-(penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+    		{
+    			setSpeed (1);
+	    		leftPenality = 1 - (speed-(penality+leftPenality));
+    		}
+    	
+    		if (dexterity - (penality+leftPenality) > 0)
+    		{
+    			setDexterity (dexterity - (penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+	    	{
+    			setDexterity (1);
+    			leftPenality = 1 - (dexterity - (penality+leftPenality));
+	    	}	
+    	
+    		setConstitution (constitution - (penality+leftPenality));
+			
+			strenght = value;
+		}
+		
 		else
 		    strenght = value;
     }
     
     public void setSpeed (int value)
     {
+		if (value > 97)
+    	{
+    		System.out.println ("Can't set an attribute above this point");
+    		return;
+    	}
+    		
 		if (strenght + value + dexterity + constitution > 100)
-		    System.out.println("Attribute points can't be above 100!");
+		{
+			int above = 100 - (strenght+value+dexterity+constitution);		// Calculate the points above 100
+			int penality = above / 3;										// Penality to each of the other attributes
+		    int leftPenality = above%3;
+			
+			/* Applying penalities */
+			if (strenght - (penality+leftPenality) > 0)
+    		{
+    			setStrenght (strenght-(penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+    		{
+    			setStrenght (1);
+	    		leftPenality = 1 - (strenght-(penality+leftPenality));
+    		}
+    	
+    		if (dexterity - (penality+leftPenality) > 0)
+    		{
+    			setDexterity (dexterity - (penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+	    	{
+    			setDexterity (1);
+    			leftPenality = 1 - (dexterity - (penality+leftPenality));
+	    	}	
+    	
+    		setConstitution (constitution - (penality+leftPenality));
+			
+			speed = value;
+		}
+		
 		else
 		    speed = value;
     }
 
     public void setDexterity (int value)
     {
+		if (value > 97)
+    	{
+    		System.out.println ("Can't set an attribute above this point");
+    		return;
+    	}
+    		
 		if (strenght + speed + value + constitution > 100)
-		    System.out.println("Attribute points can't be above 100!");
+		{
+			int above = 100 - (strenght+speed+value+constitution);		// Calculate the points above 100
+			int penality = above / 3;									// Penality to each of the other attributes
+			int leftPenality = above%3;
+			
+			/* Applying penalities */
+			if (strenght - (penality+leftPenality) > 0)
+    		{
+    			setStrenght (strenght-(penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+    		{
+    			setStrenght (1);
+	    		leftPenality = 1 - (strenght-(penality+leftPenality));
+    		}
+    	
+    		if (speed - (penality+leftPenality) > 0)
+    		{
+    			setSpeed (speed - (penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+	    	{
+    			setSpeed (1);
+    			leftPenality = 1 - (speed - (penality+leftPenality));
+	    	}	
+    	
+    		setConstitution (constitution - (penality+leftPenality));
+			
+			dexterity = value;
+		}
+		
 		else
 		    dexterity = value;
-    }
+	}
     
     public void setConstitution (int value)
     {
+		if (value > 97)
+    	{
+    		System.out.println ("Can't set an attribute above this point");
+    		return;
+    	}
+    		
 		if (strenght + speed + dexterity + value > 100)
-		    System.out.println("Attribute points can't be above 100!");
+		{
+			int above = 100 - (strenght+speed+dexterity+value);		// Calculate the points above 100
+			int penality = above / 3;									// Penality to each of the other attributes
+		    int leftPenality = above%3;
+			
+			/* Applying penalities */
+			if (strenght - (penality+leftPenality) > 0)
+    		{
+    			setStrenght (strenght-(penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+    		{
+    			setStrenght (1);
+	    		leftPenality = 1 - (strenght-(penality+leftPenality));
+    		}
+    	
+    		if (speed - (penality+leftPenality) > 0)
+    		{
+    			setSpeed (speed - (penality+leftPenality));
+	    		leftPenality = 0;
+    		}
+    		else
+	    	{
+    			setSpeed (1);
+    			leftPenality = 1 - (speed - (penality+leftPenality));
+	    	}	
+    	
+    		setDexterity (dexterity - (penality+leftPenality));
+			
+			constitution = value;
+		}
+		
 		else
-		    constitution = value;
-    }
+      		constitution = value;
+	}
 
     public void setSpeedArmor (int value)
     {
