@@ -1,5 +1,3 @@
-package Items;
-
 import java.util.*;
 
 public class Inventory
@@ -146,7 +144,7 @@ public class Inventory
 		return attack;
     }
 
-    public boolean equipItem(Item item, Character character)
+    public boolean equipItem(Item item, GameCharacter character)
     {
 
 	  item = searchItem (item.getName());
@@ -157,9 +155,9 @@ public class Inventory
 	    System.out.println ("Item doesn't exist!\n\n");
 	    return false;
 	   } 
-	  if (!item.vocation.equals(character.vocation))
+	  if (!item.vocation.equals(character.getVocation()))
 	  {
-	  	System.out.println ("Item can only be properly wield by " + vocation + "!");
+	  	System.out.println ("Item can only be properly wield by " + item.vocation + "!");
 	  	return false;
 	  }
 

@@ -1,5 +1,3 @@
-package Items;
-
 public abstract class Armor extends Item
 {
 	protected int defensepts;
@@ -7,7 +5,7 @@ public abstract class Armor extends Item
 
 	public Armor (String name, double price, int defensepts, double weight, Vocation vocation)
 	{
-		super(name, price);
+		super(name, price, vocation);
 		
 	if (defensepts >= 1 && defensepts <= 20)
 	{

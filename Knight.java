@@ -1,4 +1,4 @@
-public class Knight extends Character
+public class Knight extends GameCharacter
 {
     /*Atributtes*/
 
@@ -10,7 +10,7 @@ public class Knight extends Character
     {
 		super(alias);
 		this.power = power;
-		vocation = Knight;
+		vocation = Vocation.Knight;
     }
 
     @Override

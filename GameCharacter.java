@@ -1,8 +1,6 @@
-
-import Items.*;
 import java.util.*;
 
-public abstract class Character
+public abstract class GameCharacter
 {
     /*Attributes*/
 
@@ -21,7 +19,7 @@ public abstract class Character
     /*Methods*/
    	
     /*Constructor*/
-    public Character (String alias)
+    public GameCharacter (String alias)
     {
 		this.alias = alias;
 		myitems = new Inventory();
@@ -36,7 +34,7 @@ public abstract class Character
     
     public Vocation getVocation ()
     {
-    	return vocation
+    	return vocation;
     }
     
     public String getName()
@@ -113,7 +111,7 @@ public abstract class Character
     	myitems.setSpaces(value);
     }
 
-    public void attack (Character target)
+    public void attack (GameCharacter target)
     {
 
     	int event = specialEvents();

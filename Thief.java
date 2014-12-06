@@ -1,4 +1,4 @@
-public class Thief extends Character
+public class Thief extends GameCharacter
 {
     /*Atributtes*/
 
@@ -10,7 +10,7 @@ public class Thief extends Character
     {
 		super(alias);
 		this.stealth = stealth;
-		vocation = Thief;
+		vocation = Vocation.Thief;
     }
 
     @Override

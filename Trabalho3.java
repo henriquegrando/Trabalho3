@@ -1,5 +1,3 @@
-
-import Items.*;
 import java.util.*;
 
 public class Trabalho3
@@ -155,14 +153,14 @@ public class Trabalho3
   chteam2.add (false); //ch7
   chteam2.add (false); //ch8
 
-  Character attacker;
-  Character defender;
+  GameCharacter attacker;
+  GameCharacter defender;
 
   for (int i = 0; i < 4; i++)   // 1 round == 8 attacks
   {
     /* Team 1 attacks */
 
-    int choose = Character.rnd (0,3);
+    int choose = GameCharacter.rnd (0,3);
 
     int topbottom = 0; //flag that tell to increase or decrease the position
 
@@ -191,7 +189,7 @@ public class Trabalho3
 
     chteam1.set(choose, true);     //Character already attacked
 
-    choose = Character.rnd (0,3);
+    choose = GameCharacter.rnd (0,3);
 
     defender = t2.searchChar (choose);
 
@@ -200,7 +198,7 @@ public class Trabalho3
 
     /* Team 2 attacks */
 
-    choose = Character.rnd (0,3);
+    choose = GameCharacter.rnd (0,3);
 
     topbottom = 0;
 
@@ -228,7 +226,7 @@ public class Trabalho3
 
     chteam2.set(choose, true);     //Character already attacked
 
-    choose = Character.rnd (0,3);
+    choose = GameCharacter.rnd (0,3);
 
     defender = t1.searchChar (choose);
 

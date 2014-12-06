@@ -1,5 +1,3 @@
-package Items;
-
 public abstract class Weapon extends Item
 {
 	protected int attackpts;
@@ -7,7 +5,7 @@ public abstract class Weapon extends Item
 
 	public Weapon (String name, double price, int attackpts, double range, Vocation vocation)
 	{
-		super(name, price);
+		super(name, price, vocation);
 
 		if (attackpts >= 1 && attackpts <= 9)
 			this.attackpts = attackpts;

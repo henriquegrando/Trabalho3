@@ -1,5 +1,3 @@
-package Items;
-
 public class Pair
 {
 	public Item first;

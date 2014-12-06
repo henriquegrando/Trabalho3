@@ -1,4 +1,4 @@
-public class Wizard extends Character
+public class Wizard extends GameCharacter
 {
     /*Atributtes*/
 
@@ -10,7 +10,7 @@ public class Wizard extends Character
     {
 		super(alias);
 		this.wisdom = wisdom;
-		vocation = Wizard;
+		vocation = Vocation.Wizard;
     }
 
     @Override

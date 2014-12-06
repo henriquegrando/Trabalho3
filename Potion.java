@@ -1,12 +1,10 @@
-package Items;
-
 public abstract class Potion extends Item
 {
 	private int restorepts;
 
-	public Potion (String name, double price, int restorepts)
+	public Potion (String name, double price, int restorepts, Vocation vocation)
 	{
-		super(name, price);
+		super(name, price, vocation);
 		this.restorepts = restorepts;
 	}
 

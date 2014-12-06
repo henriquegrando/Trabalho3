@@ -8,7 +8,7 @@ public class Team
 	private int win;
 	private int lose;
 	private int draw;
-	private ArrayList<Character> characters;
+	private ArrayList<GameCharacter> characters;
 
 	public Team(String name, Color color)
 	{
@@ -17,7 +17,7 @@ public class Team
 		win = 0;
 		lose = 0;
 		draw = 0;
-		characters = new ArrayList<Character>();
+		characters = new ArrayList<GameCharacter>();
 	}
 
 	public void clearTeam ()
@@ -61,7 +61,7 @@ public class Team
 			this.draw++;
 	}
 
-	public void addChar (Character partner)
+	public void addChar (GameCharacter partner)
 	{
 		characters.add(partner);
 	}
@@ -71,12 +71,12 @@ public class Team
 		characters.remove (index);
 	}
 
-	public void removeChar (Character partner)
+	public void removeChar (GameCharacter partner)
 	{
 		characters.remove (partner);
 	}
 
-	public Character searchChar (String alias)
+	public GameCharacter searchChar (String alias)
 	{
 		for (int i = 0; i < characters.size(); i++)
 		{
@@ -87,7 +87,7 @@ public class Team
 		return null;
 	}
 
-	public Character searchChar (int index)
+	public GameCharacter searchChar (int index)
 	{
 		return characters.get(index);
 	}
