@@ -5,7 +5,7 @@ public class Armor extends Item
 	protected int defensepts;
 	protected double weight;
 
-	public Armor (String name, double price, int defensepts, double weight)
+	public Armor (String name, double price, int defensepts, double weight, Vocation vocation)
 	{
 		super(name, price);
 		

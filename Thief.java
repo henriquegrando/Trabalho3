@@ -8,8 +8,9 @@ public class Thief extends Character
 
     public Thief (String alias, int stealth)
     {
-	super(alias);
-	this.stealth = stealth;
+		super(alias);
+		this.stealth = stealth;
+		vocation = Thief;
     }
 
     @Override

@@ -146,14 +146,22 @@ public class Inventory
 		return attack;
     }
 
-    public boolean equipItem(Item item)
+    public boolean equipItem(Item item, Character character)
     {
 
 	  item = searchItem (item.getName());
 
 	  //Verifying if the item exists in the inventory
 	  if (item == null)
+	  {
 	    System.out.println ("Item doesn't exist!\n\n");
+	    return false;
+	   } 
+	  if (!item.vocation.equals(character.vocation))
+	  {
+	  	System.out.println ("Item can only be properly wield by " + vocation + "!");
+	  	return false;
+	  }
 
 	  if (item instanceof Armor)    //If the item to be equiped is an armor
 	  {

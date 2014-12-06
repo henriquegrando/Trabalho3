@@ -10,6 +10,7 @@ public class Wizard extends Character
     {
 		super(alias);
 		this.wisdom = wisdom;
+		vocation = Wizard;
     }
 
     @Override

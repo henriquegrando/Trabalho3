@@ -10,6 +10,7 @@ public class Knight extends Character
     {
 		super(alias);
 		this.power = power;
+		vocation = Knight;
     }
 
     @Override

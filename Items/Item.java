@@ -8,15 +8,17 @@ public abstract class Item
     private double price;
     protected int attackpts;
     protected int defensepts;
+    protected Vocation vocation;
 
     /*Methods*/
 
     /*Constructor*/
     
-    public Item (String name, double price)
+    public Item (String name, double price, Vocation vocation)
     {
 		this.name = name;
 		this.price = price;
+		this.vocation = vocation;
     }
 
     public Item (Item item)

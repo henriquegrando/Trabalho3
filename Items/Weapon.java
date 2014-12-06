@@ -5,7 +5,7 @@ public class Weapon extends Item
 	protected int attackpts;
 	protected double range;
 
-	public Weapon (String name, double price, int attackpts, double range)
+	public Weapon (String name, double price, int attackpts, double range, Vocation vocation)
 	{
 		super(name, price);
 

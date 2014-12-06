@@ -15,7 +15,8 @@ public abstract class Character
     protected int speed;
     protected int dexterity;
     protected int constitution;
-    protected int speedarmor; //speed penality given by the armor
+    protected int speedarmor; 		//speed penality given by the armor
+    protected Vocation vocation;	//vocation of the respective character
 
     /*Methods*/
    	
@@ -31,6 +32,11 @@ public abstract class Character
 		dexterity = 25;
 		constitution = 25;
 		speedarmor = 0;
+    }
+    
+    public Vocation getVocation ()
+    {
+    	return vocation
     }
     
     public String getName()
@@ -202,7 +208,7 @@ public abstract class Character
 
     public void equipItem (Item item)
     {
-    	boolean check = myitems.equipItem(item);
+    	boolean check = myitems.equipItem(item, this);
 
     	if ((item instanceof Armor) && (check)) //if equiping an armor
     	{
