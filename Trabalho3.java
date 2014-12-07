@@ -61,6 +61,8 @@ public class Trabalho3
   	{
   		city.get(i).activeCity();
   	}
+  	
+  	System.out.println ("City Arena!\n");
   }
   
   if (scenario == 1)
@@ -78,6 +80,8 @@ public class Trabalho3
   	{
   		forest.get(i).activeForest();
   	}
+  	
+  	System.out.println ("Forest Arena!\n");
   }
   
   if (scenario == 2)
@@ -96,6 +100,8 @@ public class Trabalho3
   	{
   		desert.get(i).activeDesert();
   	}
+  	
+  	System.out.println ("Desert Arena!\n");
   }
 
   //Uncomment the part below to see
@@ -295,6 +301,13 @@ public class Trabalho3
   
   System.out.println ("The fight is about to begin!\n");
   
+  /* Setting and starting powers */
+  
+  System.out.println ("Wizards charging their powers!\n");
+  
+  Power power = new Power (ch1, ch5, t1, t2);
+  power.start();
+  
   /* Starting fights */
   
   fight1.start();
@@ -306,7 +319,7 @@ public class Trabalho3
   fight2.join();
   fight3.join();
   fight4.join();
-  
+  power.interrupt();
 
 	  /* Resolve Battle */
 

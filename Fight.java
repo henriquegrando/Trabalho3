@@ -18,14 +18,24 @@ public class Fight extends Thread
 		this.description = "Fight " + this.id;
 	}
 	
+	/* Two characters fight against each other, if one of them dies, the battle ends */
+	@Override
 	public void run ()
 	{
 		do
-		{			
-			ch1.attack(ch2);
-			ch2.attack(ch1);
-			
+		{	
 			rounds++;
+				
+			ch1.attack(ch2);
+			
+			if (ch2.getHP() <= 0)
+			{
+				end = true;
+				System.out.println ("Fight " + this.id + " finished with " + rounds + " rounds!!\n" + ch1.getName() + " WINS!!\n");
+				continue;			// ch2 can't attack ch1 anymore
+			}
+			
+			ch2.attack(ch1);
 
 			if (ch1.getHP() <= 0)
 			{
@@ -33,11 +43,7 @@ public class Fight extends Thread
 				System.out.println ("Fight " + this.id + " finished with " + rounds + " rounds!!\n" + ch2.getName() + " WINS!!\n");
 			}
 			
-			if (ch2.getHP() <= 0)
-			{
-				end = true;
-				System.out.println ("Fight " + this.id + " finished with " + rounds + " rounds!!\n" + ch1.getName() + " WINS!!\n");
-			}
+			
 			
 									
 		}while (!end);

@@ -24,6 +24,7 @@ public abstract class GameCharacter
 		this.alias = alias;
 		myitems = new Inventory();
 		HP = 100;
+		MP = 0;
 		XP = 1;
 		strenght = 15;
 		speed = 15;
@@ -305,7 +306,10 @@ public abstract class GameCharacter
 
     public void addMP (int value)
     {
-		MP = MP + value;
+		if (MP+ value <= 100)
+	       MP = MP + value;
+        else
+        	MP = 100;
     }
 
     public int getHP()
