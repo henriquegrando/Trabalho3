@@ -30,6 +30,7 @@ public class Knight extends GameCharacter implements Desert, Forest
 		power = power + value;
 	}
 	
+	/* Implementing interface methods */
 	public void activeDesert ()
 	{
 		setStrenght (this.strenght - 5);
@@ -37,7 +38,7 @@ public class Knight extends GameCharacter implements Desert, Forest
 		setConstitution (this.constitution - 5);
 		setDexterity (this.dexterity - 5);
 	}
-	
+
 	public void activeForest ()
 	{
 		setStrenght (this.strenght + 5);

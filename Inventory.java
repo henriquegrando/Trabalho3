@@ -6,7 +6,7 @@ public class Inventory
 
     private int spaces;
     private double gold;
-    private ArrayList<Pair> items;
+    private ArrayList<Pair<Item, Boolean> > items;
     private int equipedarmors;	//number of equiped armors
     private int equipedweapons;	//number of equiped weapons
 
@@ -14,7 +14,7 @@ public class Inventory
 
     public Inventory ()
     {
-		items = new ArrayList<Pair>();
+		items = new ArrayList<Pair<Item, Boolean> >();
 		spaces = 10;
 		gold = 0.0;
 		equipedarmors = 0;
@@ -64,8 +64,8 @@ public class Inventory
     {
 		for (int i=0; i < items.size(); i++)
 		{
-			if(items.get(i).first.getName().equals(name))
-		    return items.get(i).first;
+			if(items.get(i).getFirst().getName().equals(name))
+		    	return items.get(i).getFirst();
 		}
 	
 		System.out.println ("Item not found!");
@@ -75,7 +75,7 @@ public class Inventory
     public Item searchItem(int index)
     {
 		if (index >= 0 && index < items.size())      /*Check if the index is not out of boundaries*/
-	    	return items.get(index).first;
+	    	return items.get(index).getFirst();
 		else
 	    {
 			System.out.println ("Out of bounds! Choose an element between 0 and " + (items.size()-1));
@@ -85,10 +85,7 @@ public class Inventory
     
     public void insertItem(Item item)
     {
-    	Pair newpair = new Pair();
-
-    	newpair.first = item;
-    	newpair.second = false;
+    	Pair<Item, Boolean> newpair = new Pair<Item, Boolean>(item, false);
 
 		if (getAvailableSpace() > 0)
 	    	items.add(newpair);
@@ -100,7 +97,7 @@ public class Inventory
 	
 		for (pos=0; pos < items.size(); pos++)
 	    {
-			if(items.get(pos).first.getName().equals(name))
+			if(items.get(pos).getFirst().getName().equals(name))
 			{
 				items.remove(pos);
 		    	break;
@@ -124,8 +121,8 @@ public class Inventory
 		int defense = 0;
 	
 		for (int i = 0; i < items.size(); i++)
-			if (items.get(i).second)
-	    		defense = defense + items.get(i).first.getDefensePts();
+			if (items.get(i).getSecond())
+	    		defense = defense + items.get(i).getFirst().getDefensePts();
 	
 		return defense;
     }
@@ -137,8 +134,8 @@ public class Inventory
 	
 		for (int i = 0; i < items.size(); i++)
 		{
-			if (items.get(i).second)
-	    		attack = attack + items.get(i).first.getAttackPts();
+			if (items.get(i).getSecond())
+	    		attack = attack + items.get(i).getFirst().getAttackPts();
 		}
 		
 		return attack;
@@ -167,9 +164,9 @@ public class Inventory
 	    {
 	      for (int i=0; i < items.size(); i++)
 	      {
-	        if(items.get(i).first.getName() == item.getName())
+	        if(items.get(i).getFirst().getName() == item.getName())
 	        {
-	          items.get(i).second = true;
+	          items.get(i).setSecond(true);
 	          equipedarmors++;
 	          return true;
 	        }
@@ -185,9 +182,9 @@ public class Inventory
 	    {
 	      for (int i=0; i < items.size(); i++)
 	      {
-	        if(items.get(i).first.getName() == item.getName())
+	        if(items.get(i).getFirst().getName() == item.getName())
 	        {
-	          items.get(i).second = true;
+	          items.get(i).setSecond(true);
 	          equipedweapons++;
 	          return true;
 	        }
@@ -204,9 +201,9 @@ public class Inventory
 	{
 		for (int i = 0; i < items.size(); i++)
 		{
-			if (item.getName() == items.get(i).first.getName() && items.get(i).second == true)				
+			if (item.getName() == items.get(i).getFirst().getName() && items.get(i).getSecond() == true)				
 			{
-				items.get(i).second = false;
+				items.get(i).setSecond(false);
 
 				if (item instanceof Armor)
 					equipedarmors--;

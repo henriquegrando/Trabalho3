@@ -1,4 +1,4 @@
-/*Interface implementada por Thief e Wizard, tendo efeitos diferentes em cada caso*/
+/*Interface implemented by Thief and Wizard, having different effects in each case*/
 interface City
 {
 	void activeCity();

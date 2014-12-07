@@ -1,4 +1,4 @@
-/*Interface implementada por Knight e Thief, tendo efeitos diferentes em cada caso*/
+/*Interface implemented by Knight e Thief, having different effects in each case*/
 interface Forest 
 {
 	void activeForest();

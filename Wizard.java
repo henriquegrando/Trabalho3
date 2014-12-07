@@ -30,6 +30,7 @@ public class Wizard extends GameCharacter implements Desert, City
 		wisdom = wisdom + value;
 	}
 	
+	/* Implementing interface methods */
 	public void activeCity ()
 	{
 		setStrenght (this.strenght - 5);

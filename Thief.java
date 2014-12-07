@@ -30,6 +30,7 @@ public class Thief extends GameCharacter implements City, Forest
 		stealth = stealth + value;
 	}
 	
+	/* Implementing interface methods */
 	public void activeForest ()
 	{
 		setStrenght (this.strenght - 5);

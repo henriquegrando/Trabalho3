@@ -1,4 +1,4 @@
-/*Interface implementada por Wizard e Knight, tendo efeitos diferentes em cada caso*/
+/*Interface implemented by Wizard and Knight, having different effects in each case*/
 interface Desert
 {
 	void activeDesert();
