@@ -1,11 +1,15 @@
-Para compilação do projeto:
+#Object Oriented Programming Project
 
-	make
+Simple RPG game with weapons, itens, levels and battle system. Illustrates the concepts of Object Oriented Programming and the use of threads in Java.
 
-Para execução do projeto:
+Compilation:
 
-	make run
+`make`
 
-Para eliminar os executáveis:
+Execution:
 
-	make clean
+`make run`
+
+Clean:
+
+`make clean`
